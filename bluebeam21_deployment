@@ -1,0 +1,8 @@
+New-Item -Path "c:\" -Name "temp" -ItemType "directory" -force
+Start-BitsTransfer -Source https://downloads.bluebeam.com/software/downloads/21.0.50/MSIBluebeamRevu21.0.50x64.zip -Destination c:\temp
+Start-Sleep -Seconds 300
+Expand-Archive -LiteralPath "c:\temp\MSIBluebeamRevu21.0.50x64.zip" -DestinationPath C:\temp -force
+Start-Sleep -Seconds 60
+msiexec -i "C:\temp\Bluebeam Revu x64 21.msi" -quiet
+Start-Sleep -Seconds 60
+Remove-Item -Path "c:\temp" -Recurse
