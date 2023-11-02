@@ -1,2 +1,0 @@
-﻿New-Item 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1' -Force | New-ItemProperty -Name '2500' -PropertyType DWORD -Value 3
-New-Item 'HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings' -Force | New-ItemProperty -Name 'DisableCachingOfSSLPages' -PropertyType DWORD -Value 0
