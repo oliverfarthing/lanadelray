@@ -1,0 +1,3 @@
+New-DistributionGroup -Name "Winvic Perm" -Alias "winivcperm"
+
+Import-CSV "C:\Users\OliverFarthing\Downloads\WinvicPermgroup.csv" | ForEach {Add-DistributionGroupMember -Identity "winivcperm@winvic.onmicrosoft.com" -Member $_.userPrincipalName}
