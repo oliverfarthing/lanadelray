@@ -1,0 +1,2 @@
+﻿New-ItemProperty -Path HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\MailSetting -Name 'NewSignature' -PropertyType ExpandString -Value Winvic
+New-ItemProperty -Path HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\16.0\Common\MailSetting -Name 'ReplySignature' -PropertyType ExpandString -Value Winvic
