@@ -1,0 +1,14 @@
+$value = Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{83F8DF4E-C625-4DCD-93A3-DE063BC32D49}"
+if($value){
+        Disable-ScheduledTask -TaskName 'Mimecast of Outlook (x64)'
+ }
+Else{
+        $Trigger = New-ScheduledTaskTrigger -AtStartup
+$Action = New-ScheduledTaskAction -Execute msiexec.exe -Argument "/i C:\Windows\Mimecast_for_outlook_7.10.1.133_(x64).msi /passive"
+$Principal = New-ScheduledTaskPrincipal -UserId "NT AUTHORITY\SYSTEM" -LogonType ServiceAccount
+ 
+Register-ScheduledTask -TaskName "Mimecast of Outlook (x64)" -Trigger $Trigger -Action $Action -Principal $Principal -Force
+
+Copy-Item -Path "Mimecast_for_outlook_7.10.1.133_(x64).msi" -Destination "C:\Windows\Mimecast_for_outlook_7.10.1.133_(x64).msi"
+
+}
